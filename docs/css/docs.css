@@ -89,7 +89,7 @@ table {
 }
 
 .section {
-    margin-bottom: 30px;
+    margin-bottom: 50px;
 }
 
 ol.howto > li {
@@ -114,10 +114,29 @@ ul.jsdocs {
     border-radius: 3px;
 }
 ul.jsdocs li {
-    margin-bottom: 40px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+ul.jsdocs li:first-child {
+    padding-top: 0;
+}
+ul.jsdocs li:last-child {
+    border-bottom: none;
+    margin-bottom: none;
+    padding-bottom: none;
 }
 ul.jsdocs li p {
     margin-left: 10px;
+}
+ul.jsdocs li p.description {
+    color: #888;
+}
+
+#examples-container > div.example {
+    margin-top: 10px;
+    margin-bottom: 30px;
 }
 
 

@@ -93,9 +93,11 @@ table {
 }
 .section h2 {
     margin-bottom: 10px;
+    text-shadow: 0 1px rgba(255, 255, 255, 0.5);
 }
-.section h2 {
-    margin-bottom: 10px;
+.section h4 {
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 .section > ul {
     list-style: none;

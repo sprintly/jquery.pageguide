@@ -89,7 +89,16 @@ table {
 }
 
 .section {
-    margin-bottom: 50px;
+    margin-bottom: 20px;
+}
+.section h2 {
+    margin-bottom: 10px;
+}
+.section h2 {
+    margin-bottom: 10px;
+}
+.section > ul {
+    list-style: none;
 }
 
 ol.howto > li {
@@ -135,8 +144,16 @@ ul.jsdocs li p.description {
 }
 
 #examples-container > div.example {
-    margin-top: 10px;
-    margin-bottom: 30px;
+
+}
+#examples-container > hr {
+    margin: 20px 0 0 0;
+    border: none;
+}
+#examples-container > hr:before {
+    content: "* * *";
+    color: #666;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.75);
 }
 
 

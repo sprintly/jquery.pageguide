@@ -85,6 +85,7 @@
 
             <p>And we have more planned, we can't stop the awesome...</p>
           </div>
+
           <div id="usage-container" class="row-fluid section">
               <a name="usage"></a>
               <h2>Getting Started</h2>
@@ -155,7 +156,7 @@ $.pageguide('unload');
                 </ol>
               </p>
           </div><!--/row-->
-
+          <hr/>
           <div id="options-container" class="row-fluid section">
             <a name="options"></a>
             <h2>Options</h2>
@@ -218,7 +219,7 @@ $.pageguide('load', guide, options);
               </li>
             </ul>
           </div><!--/row-->
-
+          <hr/>
           <div id="api-container" class="row-fluid section">
             <a name="api"></a>
             <h2>API Reference</h2>
@@ -356,6 +357,11 @@ options: {
             </p>
 
             <h3>Functions</h3>
+            <p>In the spirit of jQuery, all public functions return the jQuery.PageGuide instance, so they're chainable. For example, if you want to open the guide immediately after loading:
+<pre class="prettyprint linenums">
+$.pageguide('load', guide, { autoAdvanceInterval: 10 }).open();
+</pre>
+            </p>
             <p>
               <ul class="jsdocs api-functions">
                 <li>
@@ -422,7 +428,7 @@ options: {
               </ul>
             </p>
           </div><!--/row-->
-
+          <hr/>
           <div id="examples-container" class="row-fluid section">
             <a name="examples"></a>
             <h2>Examples</h2>
@@ -574,7 +580,6 @@ var eventsGuideOverrides = {
               <p><a class="btn btn-primary example example-events" data-guide="eventsGuide">Try it</a></p>
             </div><!--/example-->
 
->>>>>>> gh-pages
           </div><!--/row-->
 
         </div><!--/span-->
@@ -597,7 +602,6 @@ var eventsGuideOverrides = {
 
     <script src="../js/jquery.pageguide.js"></script>
     <script language="javascript">
-
       /**
        * Helper Functions
        */

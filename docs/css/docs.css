@@ -1,0 +1,204 @@
+@import url(http://fonts.googleapis.com/css?family=Glegoo);
+
+html, body {
+    font-family: 'Glegoo', serif;
+    color: #444;
+    background: transparent url(../img/blue-fabric-bg.png) top left;
+}
+
+body {
+    padding-top: 60px;
+    padding-bottom: 40px;
+}
+
+hr {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+table {
+    background-color: #fff;
+}
+
+.sidebar-nav {
+    padding: 9px 0;
+}
+
+.hero-unit {
+    background-color: rgba(255, 255, 255, .35);
+}
+.hero-unit h1 {
+    margin-bottom: 10px;
+    text-shadow: 0 1px rgba(255, 255, 255, 1);
+}
+
+.hero-unit p {
+    font-weight: 400;
+    margin-bottom: 25px;
+}
+.hero-unit p.plug {
+    font-size: 16px;
+    color: #666;
+}
+.hero-unit p:last-of-type {
+    margin-bottom: 0;
+}
+
+.btn-group.big {
+    display: block;
+    margin: 0;
+}
+.btn-group.big .btn {
+    width: 113px;
+    font-size: 12px;
+    line-height: 16px;
+    color: #777;
+    white-space: nowrap;
+    text-shadow: 0 1px rgba(255, 255, 255, 1);
+}
+.btn-group.big > .btn:first-child {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+.btn-group > .btn:last-child {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.btn-group.big .btn i {
+    float: left;
+    display: block;
+    height: 32px;
+    vertical-align: middle;
+    font-size: 32px;
+    line-height: 34px;
+    margin-right: 5px;
+    color: #444;
+}
+.btn-group.big .btn [class*="entypo-"]:before {
+  font-size: 62px;
+  line-height: 18px;
+}
+.btn-group.big .btn .title {
+    color: #444;
+    font-weight: 700;
+    font-size: 14px;
+}
+.btn-group.big .btn .title:before {
+    content: "\A";
+    white-space: pre;
+}
+
+.section {
+    margin-bottom: 50px;
+}
+
+ol.howto > li {
+    margin-bottom: 15px;
+}
+ol.howto > li pre {
+    margin-bottom: 5px;
+}
+ol.howto > li pre:last-child {
+    margin-bottom: 0;
+}
+li pre.prettyprint {
+    margin-top: 5px;
+}
+
+ul.jsdocs {
+    margin: 0;
+    padding: 10px;
+    background-color: #fff;
+    list-style-position: inside;
+    list-style-type: none;
+    border-radius: 3px;
+}
+ul.jsdocs li {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+ul.jsdocs li:first-child {
+    padding-top: 0;
+}
+ul.jsdocs li:last-child {
+    border-bottom: none;
+    margin-bottom: none;
+    padding-bottom: none;
+}
+ul.jsdocs li p {
+    margin-left: 10px;
+}
+ul.jsdocs li p.description {
+    color: #888;
+}
+
+#examples-container > div.example {
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+
+/**
+ * Google Prettify Theme
+ */
+.prettyprint {
+    padding: 8px;
+    border: 1px solid #e1e1e8;
+}
+.prettyprint.linenums {
+  -webkit-box-shadow: inset 40px 0 0 #333, inset 41px 0 0 #444;
+     -moz-box-shadow: inset 40px 0 0 #333, inset 41px 0 0 #444;
+          box-shadow: inset 40px 0 0 #333, inset 41px 0 0 #444;
+}
+
+pre {
+    display: block;
+    color: #fff;
+    background-color: #333
+}
+pre .nocode { background-color: none; color: #000 }
+pre .str { color: #ffa0a0 } /* string  - pink */
+pre .kwd { color: #f0e68c; font-weight: 500 }
+pre .com { color: #87ceeb } /* comment - skyblue */
+pre .typ { color: #98fb98 } /* type    - lightgreen */
+pre .lit { color: #cd5c5c } /* literal - darkred */
+pre .pun { color: #fff }    /* punctuation */
+pre .pln { color: #fff }    /* plaintext */
+pre .tag { color: #f0e68c; font-weight: 500 } /* html/xml tag    - lightyellow */
+pre .atn { color: #bdb76b; font-weight: 500 } /* attribute name  - khaki */
+pre .atv { color: #ffa0a0 } /* attribute value - pink */
+pre .dec { color: #98fb98 } /* decimal         - lightgreen */
+
+/* Specify class=linenums on a pre to get line numbering */
+ol.linenums {
+    list-style-position: outside;
+    margin: 0 0 0 40px;
+    color: #AEAEAE;
+}
+ol.linenums li {
+    padding-left: 10px;
+    line-height: 18px;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.75);
+    list-style: decimal;
+}
+li.L0,li.L1,li.L2,li.L3,li.L4,li.L5,li.L6,li.L7,li.L8,li.L9 {}
+/* Zebra stripes */
+li.L1,li.L3,li.L5,li.L7,li.L9 {
+    background-color: rgba(35, 35, 35, 0.25);
+}
+
+@media print {
+  pre { background-color: none }
+  pre .str, code .str { color: #060 }
+  pre .kwd, code .kwd { color: #006; font-weight: bold }
+  pre .com, code .com { color: #600; font-style: italic }
+  pre .typ, code .typ { color: #404; font-weight: bold }
+  pre .lit, code .lit { color: #044 }
+  pre .pun, code .pun { color: #440 }
+  pre .pln, code .pln { color: #000 }
+  pre .tag, code .tag { color: #006; font-weight: bold }
+  pre .atn, code .atn { color: #404 }
+  pre .atv, code .atv { color: #060 }
+}

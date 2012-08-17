@@ -8,13 +8,13 @@
     <meta name="author" content="">
 
     <!-- Le styles -->
-    <link href="lib/bootstrap/css/bootstrap.css" rel="stylesheet">
-    <link href="lib/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
-    <link href="lib/google-code-prettify/prettify.css" type="text/css" rel="stylesheet" />
-    <link href="css/social_foundicons.css" rel="stylesheet">
-    <link href="css/entypo.css" rel="stylesheet">
-    <link href="../css/pageguide.css" rel="stylesheet">
-    <link href="css/docs.css" rel="stylesheet">
+    <link href="docs/lib/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="docs/lib/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="docs/lib/google-code-prettify/prettify.css" type="text/css" rel="stylesheet" />
+    <link href="docs/css/social_foundicons.css" rel="stylesheet">
+    <link href="docs/css/entypo.css" rel="stylesheet">
+    <link href="css/pageguide.css" rel="stylesheet">
+    <link href="docs/css/docs.css" rel="stylesheet">
 
     <!--[if lt IE 8]>
       <link rel="stylesheet" href="css/social_foundicons_ie7.css">
@@ -25,7 +25,7 @@
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
-    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="shortcut icon" href="docs/favicon.ico">
   </head>
 
   <body>
@@ -110,7 +110,7 @@
   &lt;script src="/path/to/js/jquery.pageguide.js"&gt;&lt;/script&gt;
 &lt;/body&gt;
 </pre>
-                    <span class="label label-info">Heads up!</span> The same jquery.pageguide.js file will also work with browser-based <a href="http://requirejs.org/whyamd.html" target="_blank">AMD</a> script loaders, like RequireJS.
+                    <span class="label label-info">Heads up!</span> The same jquery.pageguide.js file will also work with browser-based <a href="http://requirejs.org/docs/whyamd.html" target="_blank">AMD</a> script loaders, like RequireJS.
                   </li>
                   <li>
                     Create a guide. Guides can be defined in both html, by using ordered lists (<code>OL</code>'s), and in JavaScript. Here we're going to build one in JavaScript (the same one that loads by default on this page):
@@ -356,6 +356,11 @@ options: {
             </p>
 
             <h3>Functions</h3>
+            <p>In the spirit of jQuery, all public functions return the jQuery.PageGuide instance, so they're chainable. For example, if you want to open the guide immediately after loading:
+<pre class="prettyprint linenums">
+$.pageguide('load', guide, { autoAdvanceInterval: 10 }).open();
+</pre>
+            </p>
             <p>
               <ul class="jsdocs api-functions">
                 <li>
@@ -574,7 +579,6 @@ var eventsGuideOverrides = {
               <p><a class="btn btn-primary example example-events" data-guide="eventsGuide">Try it</a></p>
             </div><!--/example-->
 
->>>>>>> gh-pages
           </div><!--/row-->
 
         </div><!--/span-->
@@ -591,13 +595,12 @@ var eventsGuideOverrides = {
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the page loads faster -->
-    <script src="lib/jquery.js"></script>
-    <script src="lib/bootstrap/js/bootstrap-dropdown.js"></script>
-    <script src="lib/google-code-prettify/prettify.js"></script>
+    <script src="docs/lib/jquery.js"></script>
+    <script src="docs/lib/bootstrap/js/bootstrap-dropdown.js"></script>
+    <script src="docs/lib/google-code-prettify/prettify.js"></script>
 
-    <script src="../js/jquery.pageguide.js"></script>
+    <script src="js/jquery.pageguide.js"></script>
     <script language="javascript">
-
       /**
        * Helper Functions
        */

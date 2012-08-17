@@ -480,7 +480,7 @@
 
                 this.autoAdvance(false);
 
-                this.$shadow.removeClass('pageguide-shadow-active');
+                this.$shadow.removeClass('pageguide-shadow-active').hide();
                 this.$allItems.removeClass("pageguide-active").toggleClass('expanded', false);
                 var curItem = this.$visibleItems[this.curIdx];
                 if(curItem) {
@@ -562,7 +562,7 @@
                 if (settings.shadow) {
                     this._showShadow(newItem);
                 } else {
-                    this.$shadow.removeClass('pageguide-shadow-active');
+                    this.$shadow.removeClass('pageguide-shadow-active').hide();
                 }
 
                 if (!this._isScrolledIntoView($(newItem))) {
@@ -749,19 +749,25 @@
             },
 
             _registerCustomHandlers: function() {
-                var that = this;
-                if (!$.isEmptyObject(this._guide.events)) {
-                    $.each(this._guide.events, function (i) {
+                var that = this,
+                    events = $.extend(true, {}, this.settings.events, this._guide.events);
+
+                if (!$.isEmptyObject(events)) {
+                    $.each(events, function (i) {
                         that.$wrapper.on(i + '.pageguide', this);
                     });
                 }
             },
 
             _removeCustomHandlers: function() {
-                var that = this;
-                $.each(this._guide.events, function (i) {
-                    that.$wrapper.off(i + '.pageguide', this);
-                });
+                var that = this,
+                    events = $.extend(true, {}, this.settings.events, this._guide.events);
+
+                if (!$.isEmptyObject(events)) {
+                    $.each(events, function (i) {
+                        that.$wrapper.off(i + '.pageguide', this);
+                    });
+                }
             },
 
             _registerCustomStepHandlers: function() {
@@ -895,7 +901,7 @@
                     top: $t.offset().top - padding,
                     left: $t.offset().left - padding,
                     zIndex: zIndex
-                }).toggleClass('pageguide-shadow-active', true);
+                }).toggleClass('pageguide-shadow-active', true).show();
                 if (!!pulse) $pulse.show();
 
                 return this;

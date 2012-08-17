@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>jQuery.PageGuide, by Sprint.ly</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="docs/lib/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="docs/lib/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="docs/lib/google-code-prettify/prettify.css" type="text/css" rel="stylesheet" />
+    <link href="docs/css/social_foundicons.css" rel="stylesheet">
+    <link href="docs/css/entypo.css" rel="stylesheet">
+    <link href="css/pageguide.css" rel="stylesheet">
+    <link href="docs/css/examples.css" rel="stylesheet">
+
+    <!--[if lt IE 8]>
+      <link rel="stylesheet" href="css/social_foundicons_ie7.css">
+    <![endif]-->
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="shortcut icon" href="docs/favicon.ico">
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#">jQuery.PageGuide</a>
+          <!--
+          <div class="btn-group pull-right">
+            <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+              <i class="icon-user"></i> Username
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Profile</a></li>
+              <li class="divider"></li>
+              <li><a href="#">Sign Out</a></li>
+            </ul>
+          </div>
+          -->
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li class="active"><a href="#about">About</a></li>
+              <li><a href="#usage">Docs</a></li>
+              <li><a href="#contact">Examples</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row-fluid">
+        <div class="span3">
+          <div class="well sidebar-nav">
+            <ul class="nav nav-list">
+              <li class="nav-header">jQuery.PageGuide</li>
+              <li id="nav-home"><a href="https://sprintly.github.com/jquery.pageguide">Project Home</a></li>
+              <li id="nav-github"><a href="https://github.com/sprintly/jquery.pageguide">Source (Github)</a></li>
+              <li id="nav-documentation" class="nav-header">Documentation</li>
+              <li id="nav-about"><a href="#about">About</a></li>
+              <li id="nav-usage"><a href="#usage">Getting Started</a></li>
+              <li id="nav-api"><a href="#api">API Reference</a></li>
+              <li id="nav-examples" class="nav-header">Examples</li>
+              <li id="nav-example-simple" class="active"><a href="#example-simple">Simple</a></li>
+              <li id="nav-example-ordered-list"><a href="#example-ordered-list">HTML Guide Definition</a></li>
+              <li id="nav-example-javascript"><a href="#example-javascript">JavaScript Guide Definition</a></li>
+              <li id="nav-example-options"><a href="#example-options">Override Options</a></li>
+              <li id="nav-example-events"><a href="#example-events">Event Listeners</a></li>
+            </ul>
+          </div><!--/.well -->
+
+          <div class="sidebar-nav">
+            <a name="get-pageguide"></a>
+            <ul class="btn-group big">
+              <li class="btn" id="btn-github"><i class="foundicon-github"></i>View on <span class="title">Github</span></li>
+              <li class="btn" id="btn-tarball"><i class="entypo-arrow-down"></i>Download <span class="title">TAR Ball</span></li>
+            </ul>
+          </div>
+        </div><!--/span-->
+        <div class="span9">
+          <div class="hero-unit">
+            <a name="about"></a>
+            <h1>jQuery.PageGuide</h1>
+            <p class="plug">Brought to you by <a href="https://sprint.ly/" target="_blank">Sprint.ly</a></p>
+            <p class="lead">jQuery.PageGuide is a <a href="http://jquery.com" target="_blank">jQuery</a> plugin for building dynamic, interactive visual guides that help your users get familiar with all the features of your site, without the unsightly clutter of static help text.</p>
+            <p>It all began as a simple modification of the fantastic <span style="color:rgba(248,2,130,1)">Tracelytics</span> <a href="http://tracelytics.github.com/pageguide/" target="_blank">pageguide.js</a>, with intent to make it work as a true jQuery plugin. But while rewriting the code, more and more features kept creeping in, and now it's taken on a life of it's own.</p>
+            <p>You can dynamically load and unload user guides, fine-tune the positioning of each step, and define event handlers on all parts of the guide (including each step individually) to perform actions in concert with the presentation.</p>
+
+            <p>And we have more planned, we can't stop the awesome...</p>
+            <!-- <p><a class="btn btn-primary btn-large">Learn more &raquo;</a></p> -->
+          </div>
+          <div id="usage-container" class="row-fluid section">
+              <a name="usage"></a>
+              <h2>Getting Started</h2>
+              <p>
+                <ol class="howto">
+                  <li>Download jQuery.PageGuide (<a href="#">TAR</a> or <a href="">Github</a>) and put the files somewhere within your project resource path.</li>
+                  <li>
+                    Include the CSS tag somewhere in the <code>HEAD</code> of the html:
+<pre class="prettyprint linenums">
+&lt;head&gt;
+  ...
+  &lt;link href="/path/to/css/pageguide.css" rel="stylesheet"&gt;
+  ...
+&lt;/head&gt;
+</pre>
+                  </li>
+                  <li>
+                    Include the JS for jQuery and jQuery.PageGuide at the <em>end</em> of the <code>BODY</code>:
+<pre class="prettyprint linenums">
+&lt;body&gt;
+  ...
+  &lt;script src="/path/to/js/jquery.js"&gt;&lt;/script&gt;
+  &lt;script src="/path/to/js/jquery.pageguide.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+</pre>
+                    <span class="label label-info">Heads up!</span> The same jquery.pageguide.js file will also work with browser-based <a href="http://requirejs.org/docs/whyamd.html" target="_blank">AMD</a> script loaders, like RequireJS.
+                  </li>
+                  <li>
+                    Create a guide. Guides can be defined in both html, by using ordered lists (<code>OL</code>'s), and in JavaScript. Here we're going to build one in JavaScript (the same one that loads by default on this page):
+<pre class="prettyprint linenums">
+var guide = {
+  id: 'jQuery.PageGuide',
+  title: 'Take a quick tour of all the possibilities',
+  steps: [
+    {
+      target: '.hero-unit h1',
+      content: 'Each step is associated with a "target" element, specified by a CSS selector. jQuery.PageGuide will automatically filter out any steps with targets that are invisible or don\'t exist..',
+      direction: 'left'
+    }
+  ]
+}
+</pre>
+                  </li>
+                  <li>Then, as soon as you're ready (or as soon as jQuery is ready), load the guide. The friendly little help icon will slide into view at the top right of the page:
+<pre class="prettyprint linenums">
+$(function() {
+  // Load the default guide!
+  $.pageguide(defaultGuide);
+});
+</pre>
+                  <span class="label label-info">Heads up!</span> Make sure to place this code somewhere <em>after</em> the script tags you added in step 3.
+                  </li>
+                  <li>
+                    If you want to swap to a different guide, go right ahead:
+<pre class="prettyprint linenums">
+// Something different
+var guide2 = {...};
+
+$.pageguide('load', guide2);
+</pre>
+                  </li>
+                  <li>
+                    And when you're done with that guide, make it go away:
+<pre class="prettyprint linenums">
+$.pageguide('unload');
+</pre>
+                  </li>
+                </ol>
+              </p>
+          </div><!--/row-->
+
+          <div id="options-container" class="row-fluid section">
+            <a name="options"></a>
+            <h2>Options</h2>
+            <p>The default settings are good enough to get you started, but there are a ton of options to explore. jQuery.PageGuide allows you to configure settings both globally and for individual guides. Setting options globally will effectively modify the defaults, which can also be overriden when loading a guide for settings that apply only while it's loaded. Keep scrolling to find the <a href="#api">full list of options</a>.</p>
+            <h3>Setting global options:</h3>
+            <p>These overrides will apply to all guides that are loaded.</p>
+            <ol>
+              <li>
+                During initialization:
+<pre class="prettyprint linenums">
+// Guide definition, as described above.
+var guide = {...};
+
+// Options to override
+var options = {
+defaultGuide: guide,      // Load this guide as soon as the page is ready
+autoAdvanceInterval: 10,  // Advance to the next step after 10 seconds
+pulse: false              // Don't show the pulse animation when a new step is selected
+...
+}
+
+// Initialize the plugin, the options will be merged with the defaults and apply to any guide loaded
+$.pageguide(options);
+</pre>
+              </li>
+              <li>
+                After initialization:
+<pre class="prettyprint linenums">
+// These options will be merged with the existing options, and apply to any guides that get loaded
+$.pageguide('options', {
+  pulse: true,              // Turn the pulse effect back on, it's rad
+  step: {
+    direction: 'right'      // Change the default position of the floating step indicators
+  }
+});
+</pre>
+              </li>
+            </ol>
+
+            <h3>Setting options for a single guide:</h3>
+            <p>These overrides will only apply to the guide being loaded.</p>
+            <ul>
+              <li>
+<pre class="prettyprint linenums">
+// Guide definition, as described above.
+var guide = {...};
+
+// Options to override for this guide only
+var options = {
+  autoAdvanceInterval: 10,  // Advance through the guide at 10 second intervals
+  ...
+  step: {
+    shadow: false           // Disable the translucent box around the target element
+  }
+}
+
+// $.pageguide();           // Only necessary if you haven't already initialized the plugin
+$.pageguide('load', guide, options);
+</pre>
+              </li>
+            </ul>
+          </div><!--/row-->
+
+          <div id="api-container" class="row-fluid section">
+            <a name="api"></a>
+            <h2>API Reference</h2>
+            <p></p>
+            <h3>Options</h3>
+            <p>
+              <table class="table table-bordered table-striped">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Default</th>
+                    <th>Possible Values</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><th colspan="4">Guide (options.*)</th></tr>
+                  <tr>
+                    <td>defaultGuide</td>
+                    <td>none</td>
+                    <td>String selector, jQuery selector, Object guide</td>
+                    <td>CSS selector or guide definition object to load when $.pageguide is initialized without a guide as the first argument.</td>
+                  </tr>
+                  <tr>
+                    <td>autoStart</td>
+                    <td>true</td>
+                    <td>true, false</td>
+                    <td>Whether or not to focus on the first visible item immediately on open.</td>
+                  </tr>
+                  <tr>
+                    <td>autoStartDelay</td>
+                    <td>0</td>
+                    <td>(int milliseconds)</td>
+                    <td>Add a delay before automatically selecting the first visible item after the guide is opened.</td>
+                  </tr>
+                  <tr>
+                    <td>autoAdvanceInterval</td>
+                    <td>null</td>
+                    <td>int seconds</td>
+                    <td>Rotate through the visible steps at a regular interval while the guide is open.</td>
+                  </tr>
+                  <tr>
+                    <td>loadingSelector</td>
+                    <td>none</td>
+                    <td>String selector, jQuery selector</td>
+                    <td>The CSS selector for the DOM element used as a loading indicator. PageGuide will wait until this element is no longer visible before starting up.</td>
+                  </tr>
+                  <tr>
+                    <td>pulse</td>
+                    <td>true</td>
+                    <td>true, false</td>
+                    <td>Show an animated effect to further highlight the target element whenever a new step is selected. Requires the step shadow to be set to 'true'.</td>
+                  </tr>
+                  <tr>
+                    <td>events</td>
+                    <td>{}</td>
+                    <td>Object {init, ready, load, unload, open, close, previous, next, step, resize, click} callback functions)</td>
+                    <td>Convenience wrapper to specify guide-level event handlers. These events are bound on load, and automatically removed when the guide is unloaded.</td>
+                  </tr>
+                  <tr>
+                </tbody>
+                <tbody>
+                  <tr><th colspan="4">Step (options.step.*)</th></tr>
+                  <tr>
+                    <td>direction</td>
+                    <td>'left'</td>
+                    <td>'top', 'right', 'bottom', 'left'</td>
+                    <td>Position of the floating step number indicator in relation to the target element.</td>
+                  </tr>
+                  <tr>
+                    <td>margin</td>
+                    <td>{top: 100, bottom: 100}</td>
+                    <td>Object {top, bottom} in px</td>
+                    <td>Minimum distance the target element must be from top or bottom of the viewport. If the element is outside of this margin, the window will scroll to bring the element into view.</td>
+                  </tr>
+                  <tr>
+                    <td>shadow</td>
+                    <td>true</td>
+                    <td>true, false</td>
+                    <td>Render a transparent box around the current step's target element.</td>
+                  </tr>
+                  <tr>
+                    <td>shadowPadding</td>
+                    <td>'10px'</td>
+                    <td>String padding, int padding</td>
+                    <td>Applied to all sides of the shadow to pad the height and width around the target element.</td>
+                  </tr>
+                  <tr>
+                    <td>zIndex</td>
+                    <td>null</td>
+                    <td>int z-index</td>
+                    <td>Force the base z-index of the step, which is used when rendering the floating step number indicator and the shadow. If set to null, the target element's z-index is used. The shadow is rendered at a z-index of base + 1, and the floating step number indicator is base + 2.</td>
+                  </tr>
+                  <tr>
+                    <td>arrow</td>
+                    <td>{offsetX: 0, offsetY: 0}</td>
+                    <td>Object {offsetX, offsetY} in px</td>
+                    <td>Additional offset to apply to the floating step indicator to make fine adjustments to positioning.</td>
+                  </tr>
+                  <tr>
+                    <td>events</td>
+                    <td>{}</td>
+                    <td>Object {show, hide, select, deselect} callbacks</td>
+                    <td>Convenience wrapper to specify step-level event handlers. These events are bound to the individual step on load, and automatically removed when the guide is unloaded.</td>
+                  </tr>
+                </tbody>
+            </table>
+            </p>
+
+            <h3>Functions</h3>
+            <p>
+              <ul class="jsdocs api-functions">
+                <li>
+                  <h4 class="name">$.pageguide('options', [options])</h4>
+                  <p class="description">Get or set overrides for base options. If the argument is ommitted, an object containing the current options are returned.</p>
+                  <p class="argument">@param  {Object} [options] Settings to override for all Guides</p>
+                  <p class="return">@return {PageGuide}</p>
+                </li>
+                <li>
+                  <h4 class="name">$.pageguide('guide', [guide])</h4>
+                  <p class="description">Get or load a guide. If the argument is ommitted, the currently loaded guide definition is returned.</p>
+                  <p class="argument">@param  {String|jQuerySelector|Object} [guide] Guide definition to load</p>
+                  <p class="return">@return {Object|PageGuide}</p>
+                </li>
+                <li>
+                  <h4 class="name">$.pageguide('load', guide, [options])</h4>
+                  <p class="description">Get or load a guide. If the argument is ommitted, the currently loaded guide definition is returned.</p>
+                  <p class="argument">@param  {String|jQuerySelector|Object} [guide] Guide definition to load</p>
+                  <p class="argument">@param  {Object} [options] Override options applied only to this guide</p>
+                  <p class="return">@return {PageGuide}</p>
+                </li>
+                <li>
+                  <h4 class="name">$.pageguide('unload')</h4>
+                  <p class="description">Close and disable the current guide. Removes guide event handlers.</p>
+                  <p class="return">@return {PageGuide}</p>
+                </li>
+                <li>
+                  <h4 class="name">$.pageguide('open')</h4>
+                  <p class="description">Start the guide. If `options.autoStart` is true, the first step will be selected automatically.</p>
+                  <p class="return">@return {PageGuide}</p>
+                </li>
+                <li>
+                  <h4 class="name">$.pageguide('close')</h4>
+                  <p class="description">Stop the guide</p>
+                  <p class="return">@return {PageGuide}</p>
+                </li>
+                <li>
+                  <h4 class="name">$.pageguide('previous')</h4>
+                  <p class="description">Show the visible step prior to the currently selected step.</p>
+                  <p class="return">@return {PageGuide}</p>
+                </li>
+                <li>
+                  <h4 class="name">$.pageguide('next')</h4>
+                  <p class="description">Advance the guide to the next visible step.</p>
+                  <p class="return">@return {PageGuide}</p>
+                </li>
+                <li>
+                  <h4 class="name">$.pageguide('showStep', newIdx)</h4>
+                  <p class="description">Select step by index.</p>
+                  <p class="argument">@param  {int} newIdx    The index (0-based) of the step to select</p>
+                  <p class="argument">@param  {int} [direction]  If negative, the step number in the message field will scroll to the left, if positive it will scroll to the right. If undefined or 0, it will be calculated automatically.</p>
+                  <p class="return">@return {PageGuide}</p>
+                </li>
+                <li>
+                  <h4 class="name">$.pageguide('isLoaded')</h4>
+                  <p class="description">Check if a guide is currently loaded.</p>
+                  <p class="return">@return {Boolean}</p>
+                </li>
+                <li>
+                  <h4 class="name">$.pageguide('isOpen')</h4>
+                  <p class="description">Check if the guide is running.</p>
+                  <p class="return">@return {Boolean}</p>
+                </li>
+              </ul>
+            </p>
+          </div><!--/row-->
+
+          <div id="examples-container" class="row-fluid section">
+            <a name="examples"></a>
+            <h2>Examples</h2>
+            <p></p>
+            <p><a class="btn btn-primary" href="#">Try it</a></p>
+          </div><!--/row-->
+
+        </div><!--/span-->
+      </div><!--/row-->
+
+      <hr>
+
+      <footer>
+        <p>&copy; Sprint.ly 2012</p>
+      </footer>
+
+    </div><!--/.fluid-container-->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="docs/lib/jquery.js"></script>
+    <!-- script src="lib/bootstrap/js/bootstrap-transition.js"></script -->
+    <!-- script src="lib/bootstrap/js/bootstrap-alert.js"></script -->
+    <!-- script src="lib/bootstrap/js/bootstrap-modal.js"></script -->
+    <script src="docs/lib/bootstrap/js/bootstrap-dropdown.js"></script>
+    <!-- script src="lib/bootstrap/js/bootstrap-scrollspy.js"></script -->
+    <!-- script src="lib/bootstrap/js/bootstrap-tab.js"></script -->
+    <!-- script src="lib/bootstrap/js/bootstrap-tooltip.js"></script -->
+    <!-- script src="lib/bootstrap/js/bootstrap-popover.js"></script -->
+    <!-- script src="lib/bootstrap/js/bootstrap-button.js"></script -->
+    <!-- script src="lib/bootstrap/js/bootstrap-collapse.js"></script -->
+    <!-- script src="lib/bootstrap/js/bootstrap-carousel.js"></script -->
+    <!-- script src="lib/bootstrap/js/bootstrap-typeahead.js"></script -->
+    <script src="docs/lib/google-code-prettify/prettify.js"></script>
+
+    <script src="js/jquery.pageguide.js"></script>
+    <script language="javascript">
+      // Helper function to open a new window with the source of the current page
+      function viewsource(e){
+        window.open("view-source:"+window.location, 'jquery.pageguide.source');
+      }
+
+      // Guide definition for the guide loaded on dom ready
+      var defaultGuide = {
+        id: 'jQuery.PageGuide',
+        title: 'Take a quick tour of all the possibilities',
+        steps: [
+          {
+            target: '.hero-unit h1',
+            content: 'Welcome to jQuery.PageGuide! Each "step" of the guide is associated with a target DOM element, specified by a CSS selector. Targets that are invisible or don\'t exist at the time the guide is started are automatically filtered out.',
+            direction: 'left'
+          },
+          {
+            target: '#usage-container h2',
+            content: 'Follow these simple instructions to get jQuery.PageGuide running on your site. You can also <a class="clickable view-source-link">view source</a> on this page to see how we made it work.',
+            direction: 'left',
+            shadow: false,
+            margin: {
+              bottom: 500
+            },
+            events: {
+              select: function(e) {
+                $('a.view-source-link').on('click', viewsource);
+              },
+              deselect: function(e) {
+                $('a.view-source-link').off('click', viewsource);
+              }
+            },
+          },
+          {
+            target: '#nav-examples, #nav-example-events',
+            content: 'Now that you\'ve seen the basics. Check out some examples of how you can make your pageguides awes.',
+            direction: 'left',
+            shadow: false
+          },
+        ]
+      }
+
+      $(function() {
+        // Render the <pre> blocks
+        prettyPrint();
+
+        // Load the default guide!
+        $.pageguide(defaultGuide);
+
+        // // Or, if you want to initialize the plugin right away, but load the guide later:
+        // $.pageguide();
+        // // ... time passes ...
+        // $.pageguide('load', defaultGuide);
+
+        // // To get the current guide definition, use:
+        // var guide = $.pageguide('guide');
+      });
+    </script>
+
+  </body>
+</html>

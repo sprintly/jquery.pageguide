@@ -235,7 +235,7 @@
                     }),
                     shadow = $('<div/>', {
                         id: 'pageGuideShadow',
-                        class: 'pageguide-shadow'
+                        'class': 'pageguide-shadow'
                     });
 
                 toggle.append('page guide').append('<div><span class="pageguide-tourtitle"></span></div>').append('<a class="pageguide-close" title="Close Guide">close guide &raquo;</a>');
@@ -296,7 +296,7 @@
              * @return {PageGuide}
              */
             options: function(options) {
-                if (options == undefined) {
+                if (options === undefined) {
                     return this._options;
                 }
 
@@ -314,7 +314,7 @@
              * @return {PageGuide} Guide definition
              */
             guide: function(guide) {
-                if (guide == undefined) {
+                if (guide === undefined) {
                     return this._guide;
                 }
 
@@ -340,7 +340,7 @@
                 }
 
                 // Override guide options
-                if (options != undefined) {
+                if (options !== undefined) {
                     this.settings = $.extend(true, {}, PageGuide.options, this._options, options);
                 }
 
@@ -372,19 +372,19 @@
                 } else {
                     $guide = ((guide.id && $('#' + guide.id).size()) ? $('#' + guide.id).empty() : $('<ol/>', {
                       id: guide.id || 'pageGuide' + PageGuide.uid(),
-                      class: 'pageguide-guide'
+                      'class': 'pageguide-guide'
                     })).data('tourtitle', guide.title);
 
                     $.each(guide.steps, function (i) {
                         var $li = $('<li/>', {
                             id: 'pageguide-step-' + i,
-                            class: 'pageguide-step pageguide-' + this.direction
+                            'class': 'pageguide-step pageguide-' + this.direction
                         }).data('tourtarget', this.target);
 
                         $li.data('options', $.extend({}, this));
 
                         $('<div/>', {
-                            class: 'pageguide-content'
+                            'class': 'pageguide-content'
                         }).html(this.content).appendTo($li);
 
                         $guide.append($li);
@@ -550,7 +550,7 @@
                 var oldIdx = this.curIdx,
                     oldItem = this.$visibleItems[oldIdx],
                     newItem = this.$visibleItems[newIdx],
-                    left = (direction && direction != 0) ? (direction > 0) ? true : false : (oldIdx > newIdx),
+                    left = (direction && direction !== 0) ? (direction > 0) ? true : false : (oldIdx > newIdx),
                     settings = $.extend(true, {}, this.settings.step, $(newItem).data('options') || {});
 
                 this.curIdx = newIdx;
@@ -596,8 +596,8 @@
                     var arrow = $(this),
                         settings = $.extend(true, {}, that.settings.step, $(this).data('options') || {}),
                         target = $(arrow.data('tourtarget')),
-                        setLeft = target.offset().left + parseInt(settings.arrow.offsetX),
-                        setTop = target.offset().top + parseInt(settings.arrow.offsetY);
+                        setLeft = target.offset().left + parseInt(settings.arrow.offsetX, 10),
+                        setTop = target.offset().top + parseInt(settings.arrow.offsetY, 10);
 
                     if (arrow.hasClass("pageguide-top")) {
                         setTop -= 60;
@@ -630,7 +630,7 @@
             },
 
             autoAdvance: function(toggle) {
-                if (toggle == undefined || !!toggle) {
+                if (toggle === undefined || !!toggle) {
                   if (this.advanceTimer) return this;
                   this.advanceTimer = setInterval($.proxy(this.next, this), this.settings.autoAdvanceInterval * 1000);
                 } else {
@@ -825,12 +825,14 @@
                 var $t = $(elem).data('tourtarget') ? $($(elem).data('tourtarget')) : $(elem),
                     dvh = $(window).height(),
                     msgh = this.$message.outerHeight(),
+                    elh = $t.outerHeight(),
                     dvtop = $(window).scrollTop(),
                     eltop = $t.offset().top,
-                    elbtm = eltop + $t.outerHeight(),
-                    mgn = $(elem).data('options') ? $.extend({}, this.settings.step.margin, $(elem).data('options').margin || {}) : this.settings.step.margin;
+                    elbtm = eltop + elh,
+                    mgn = $(elem).data('options') ? $.extend({}, this.settings.step.margin, $(elem).data('options').margin || {}) : this.settings.step.margin,
+                    mgnb = Math.max(mgn.bottom, msgh + 15);
 
-                var scrollTo = (eltop <= dvtop + mgn.top) ? eltop - mgn.top : (elbtm - dvh) + Math.max(mgn.bottom, msgh + 15);
+                var scrollTo = ((eltop <= dvtop + mgn.top) || (elh > (dvh - mgnb))) ? eltop - mgn.top : (elbtm - (dvh - mgnb));
 
                 $('html,body').animate({
                   scrollTop: scrollTo
@@ -883,13 +885,13 @@
             },
 
             _showShadow: function(elem, pulse) {
-                if (pulse == undefined) {
+                if (pulse === undefined) {
                     pulse = this.settings.pulse;
                 }
 
                 var $t = $(elem).data('tourtarget') ? $($(elem).data('tourtarget')) : $(elem),
                     settings = $.extend(true, {}, this.settings.step, $(elem).data('options') || {}),
-                    padding = settings.shadowPadding ? parseInt(settings.shadowPadding) : 0,
+                    padding = settings.shadowPadding ? parseInt(settings.shadowPadding, 10) : 0,
                     zIndex = $t.zIndex() + 1,
                     $pulse = this.$shadow.children('.pageguide-shadow-pulse');
 
@@ -942,8 +944,8 @@
                             // other browsers return a string
                             // we ignore the case of nested elements with an explicit value of 0
                             // <div style="z-index: -10;"><div style="z-index: 0;"></div></div>
-                            value = parseInt(elem.css('zIndex'));
-                            if (!isNaN(value) && value != 0) {
+                            value = parseInt(elem.css('zIndex'), 10);
+                            if (!isNaN(value) && value !== 0) {
                                 return value;
                             }
                         }

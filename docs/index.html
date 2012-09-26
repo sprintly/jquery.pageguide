@@ -45,6 +45,7 @@
       </div>
     </div>
 
+    <div class="wrapper">
     <div class="container">
       <div class="row-fluid">
         <div class="span3">
@@ -111,7 +112,7 @@
   &lt;script src="/path/to/js/jquery.pageguide.js"&gt;&lt;/script&gt;
 &lt;/body&gt;
 </pre>
-                    <span class="label label-info">Heads up!</span> The same jquery.pageguide.js file will also work with browser-based <a href="http://requirejs.org/whyamd.html" target="_blank">AMD</a> script loaders, like RequireJS.
+                    <span class="label label-info">Heads up!</span> The same jquery.pageguide.js file will also work with browser-based <a href="http://requirejs.org/docs/whyamd.html" target="_blank">AMD</a> script loaders, like RequireJS.
                   </li>
                   <li>
                     Create a guide. Guides can be defined in both html, by using ordered lists (<code>OL</code>'s), and in JavaScript. Here we're going to build one in JavaScript (the same one that loads by default on this page):
@@ -593,7 +594,11 @@ var eventsGuideOverrides = {
 
     </div><!--/.fluid-container-->
 
-    <!-- Le javascript
+      <!-- GitHub ribbon -->
+      <a href="https://github.com/sprintly/jquery.pageguide"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
+    </div><!--/.wrapper-->
+
+    <!-- JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the page loads faster -->
     <script src="lib/jquery.js"></script>
@@ -688,8 +693,8 @@ var eventsGuideOverrides = {
             }
           },
           {
-            target: 'a[name=api]',
-            content: 'Once you have the guides up and running on your site, you might want to fine-tune the look and feel of things. Use this reference to tweak things until they\'re perfect.',
+            target: '#api-container',
+            content: 'Once you have the guides up and running, you might want to fine-tune the look and feel of things. Use this reference to unleash the power of jQuery.PageGuide.',
             direction: 'left',
             shadow: false
           },
@@ -742,6 +747,5 @@ var eventsGuideOverrides = {
         // var guide = $.pageguide('guide');
       });
     </script>
-
   </body>
 </html>

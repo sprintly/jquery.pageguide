@@ -45,6 +45,7 @@
       </div>
     </div>
 
+    <div class="wrapper">
     <div class="container">
       <div class="row-fluid">
         <div class="span3">
@@ -593,7 +594,11 @@ var eventsGuideOverrides = {
 
     </div><!--/.fluid-container-->
 
-    <!-- Le javascript
+      <!-- GitHub ribbon -->
+      <a href="https://github.com/sprintly/jquery.pageguide"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
+    </div><!--/.wrapper-->
+
+    <!-- JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the page loads faster -->
     <script src="docs/lib/jquery.js"></script>
@@ -688,8 +693,8 @@ var eventsGuideOverrides = {
             }
           },
           {
-            target: 'a[name=api]',
-            content: 'Once you have the guides up and running on your site, you might want to fine-tune the look and feel of things. Use this reference to tweak things until they\'re perfect.',
+            target: '#api-container',
+            content: 'Once you have the guides up and running, you might want to fine-tune the look and feel of things. Use this reference to unleash the power of jQuery.PageGuide.',
             direction: 'left',
             shadow: false
           },
@@ -742,6 +747,5 @@ var eventsGuideOverrides = {
         // var guide = $.pageguide('guide');
       });
     </script>
-
   </body>
 </html>

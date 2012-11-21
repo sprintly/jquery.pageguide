@@ -583,7 +583,7 @@
             },
 
             refresh: function() {
-                if (!this.isOpen) return this;
+                if (!this.isOpen()) return this;
 
                 var that = this;
 
@@ -910,7 +910,7 @@
             },
 
             _onResize: function() {
-                if (!this.isOpen) return this;
+                if (!this.isOpen()) return this;
 
                 this.refresh();
 

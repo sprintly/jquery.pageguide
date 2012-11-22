@@ -460,9 +460,9 @@
             open: function() {
                 if ($('body').is('.pageguide-open')) return;
 
+                $('body').addClass('pageguide-open');
                 this._onExpand();
                 this.$visibleItems.toggleClass('expanded', true);
-                $('body').addClass('pageguide-open');
 
                 this.$wrapper.trigger('open.pageguide');
                 this.$visibleItems.trigger('show.pageguide');
